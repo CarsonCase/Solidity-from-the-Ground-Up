@@ -1,7 +1,7 @@
 # Day 170 of writing a smart contract a day until ETH hits $10k
 
 ❌🦜 **Solidity from the Ground Up: Ep. 1**
-Read this episode on [Github]()
+Read this episode on [Github](https://github.com/CarsonCase/Solidity-from-the-Ground-Up/blob/master/1_helloMachineCode.md)
 
 ## ❓*What the Heck Is a 'Puter?*
 
