@@ -1,0 +1,63 @@
+Day 172 of writing a smart contract a day until ETH hits $10k
+
+❌🦜 Solidity from the Ground Up:  Ep. 2
+
+❓What is Up With These Funky Numbers Computers Use?
+
+Ok so yesterday we wrote our first ever program in EVM machinecode to get an idea of what the computer is actually reading when we write code. 
+
+It turns out it's a lot like a kitchen recipe where you instruct what to do with ingredients and give "opcodes" that do things to those ingredients. Like take the last 2, add them together, and put back for example (which is ADD or 01)
+
+But why do I keep writing 01 instead of just 1?
+
+And before we keep going on exploring what you can do with all the opcodes, or how memory works (the different types of "bowls" you can use in the kitchen metaphor), we gotta discuss numbers.
+
+I know I know. Math, bleh but this isn't doing arithmetic or drilling formulas you can plug in a calculator. Today I'm going to talk about numbers themselves and more importantly, how the computer understands them, because at the end of the day it really is all just numbers being shuffled around in these computers.
+
+🔟 What is a 10?
+
+Pop quiz. What is 10?
+A. 10
+B. 3
+C. 16
+D. All of the above
+
+D!
+
+What? How? Well the way we normally look at 10 is probably because you have 10 fingers. 
+But when you count to 10 you go: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9... Uh oh. 9 is the highest numbers go. So to keep counting you reset the 9 back to 0, then slap a 1 in front of it.
+And so on and so forth until you get to 99. Then same deal. You loop the 9s back around to 0 and add a 1 in front to get 100.
+
+This system of numbers we use everyday is called "decimal" because deca means 10 in greek or something. But it means there's 10 "letters" for numbers 0-9.
+
+But one day, some crazy person said "what if there... Were more numbers??" And came up with something like Hexadecimal or 16 "letters" of numbers. Imagine if counting went like:
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F instead? Well now if you wanted to write ten you would write A. 
+
+That's really dang confusing right? Well to know when we're using hex we throw this 0x in front. 
+
+So what is 0x10 in normal decimal numbers? You figure this one out yourself, all you gotta do is count like you normally would, but instead of stopping at 9, keep going to F, then loop F around to 0, and throw a 1 in front.
+
+You might know this already if you're even an amateur computer geek. But even if not you probably know "binary" just means 1s and 0s.
+
+counting in binary is just 0,1 and that's it. To count to 3 in binary you go 0, 1 then you're out of numbers ALREADY. And have to set 1 to 0, then slap another 1 in front. so 10 is 3 in binary.
+
+📏 Playing around
+Here's some fun websites to play around with these numbers:
+https://www.rapidtables.com/convert/number/hex-to-decimal.html
+https://www.rapidtables.com/convert/number/decimal-to-binary.html
+
+You absolutely do not need to drill how to do this, despite what my uni professors would say. If you ever need to convert between hex and decimal just use one of these simple websites.
+
+Ok so why do you need to know this?
+This is really getting too long as is, so I'll do the next part here tomorrow. But the reason here is that these hexadecimal numbers are surprisingly much more useful than decimal ones usually when working with computers for reason's we'll get into tomorrow. So stick around if you want to find out why I went over all this. But until then see if you can figure something out
+
+📩 Homework
+This is just a fun puzzle for you to work through if you're feeling spicy. 
+Try and figure out what the LARGEST a number can be in decimal, given it's number of "letters" and base system.
+
+For example.
+Binary 2 letters largest = 3 (11)
+Decimal 2 letters largest = 99 (99)
+Hexadecimal 2 letters largest = 255 (FF)
+
+There's a real simple little math formula to finding this and we'll need to know it for tomorrow. See if you can find out what it is!

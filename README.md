@@ -33,4 +33,3 @@ Each day I'm going to post a link to the whole course so you can start from the 
 Also. Never hesitate to send me a DM with questions. I am happy to be working on this, talking with people interested in learning! And please please please give suggestions. I've never taught before, so any advice is welcome.
 
 Finally, you don't need to be a software dev or give half a crap about computers to do this and follow along. I've been doing code puzzles for about an hour each morning with my coffee to start the day, and I literally feel smarter after only a few weeks of this habit. You want to be a smart person? Want to be someone who can solve puzzles and just be the real life equivalent of a wizard? Follow along, for not even an hour a day. I guarantee it'll be worth it.
-
