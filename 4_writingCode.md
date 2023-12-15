@@ -1,0 +1,84 @@
+# Day 173 of writing a smart contract a day until ETH hits $10k
+
+**❌🦜 Solidity from the Ground Up:  Ep. 4**
+
+Alright guys. We've spent 3 days on fundamentals. I know we wrote a little machine code already but now you should have a solid understanding of it.
+
+Sure all we've used us PUSH1 and ADD. But what's to stop us from using the others? A lot of em really do work the same way. Today lets get into writing some more EVM machine code!
+
+## 🧪 Solve The puzzle
+Ok ready to start coding like it's 1980? Let's solve the puzzle from day 2
+
+BASE ^ DIGITS - 1 = MAX Numbers
+
+This was our formula for finding the largest number we can have. Let's write an EVM opcode calculator together to solve it.
+
+Go to https://www.evm.codes/
+
+We're going to need the following: 
+1. Exponent (^)
+2. Subtraction
+3. Push
+
+In evm.codes we see the names and codes as:
+1. EXP = 0A
+2. SUB = 03
+3. PUSH1 = 60
+4. PUSH2 = 61
+
+So let's find the largest number we can make in the EVM. Remember computers of course use base 2 (binary). And the EVM is 256 bit.
+
+So we need to do 2 ^ 256 - 1
+
+If you click on EXP you find it works just like ADD. We just need to push our numbers. The first one is the base, then the exponent.
+
+Soooo. The first part here is:
+
+PUSH2 0100
+PUSH1 02
+EXP
+
+Ok let's walk through it.
+
+PUSH2 0100. 
+We use 0100 as 256 because it's in hexadecimal use this website here to convert if you're ever confused: https://www.rapidtables.com/convert/number/hex-to-decimal.html
+And we need to use PUSH2 because 100 is too big for PUSH1 (max=FF).
+
+Next we PUSH1 02. Simple enough
+
+Then call EXP to find 0x02^0x0100
+
+![Not working solution](<images/Screenshot from 2023-12-15 22-59-13.png>)
+
+Uhm.. What happened? It returns 0?
+
+Yup. Remember. The max number is that -1!
+The number it's trying to print is too big for the largest tuperware, and it overflows to 0. It's like if we tried to count to 100 but could only see 2 "letters". After 99, we couldn't see the 1 so we just see 00.
+
+Well dang. So let's subtract that one. 
+We actually have to switch things up here. And PUSH the 1 very first, that way once EXP is done we have 
+1
+result of EXP
+SUB
+
+So it does result - 1 instead of 1 - result
+
+So our new code is
+PUSH1 01
+PUSH2 0100
+PUSH1 02
+EXP
+SUB
+
+And this does it!
+![Working solution](<images/Screenshot from 2023-12-15 23-02-49.png>)
+Rejoice.
+
+Here's a link to it if you don't want to type it yourself: https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code='60~1%2061~100%2060~2~A~3'~%200%01~_
+
+But hold on. Does it really? We can probably simplify this right? Use the "step into" icon in the upper right of the evm.codes playground to look through this yourself.
+What's really going on here?
+
+There's a way to do this that doesn't require an EXP at all. Can you figure out how to do it in just 3 opcodes?
+
+That's your homework for tonight. Write some code in the playground to get that same result with just 3 opcodes. Look at you! Already optimizing gas.
