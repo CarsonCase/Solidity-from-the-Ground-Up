@@ -18,12 +18,12 @@ actually DO it?
 Well today we're going to use machine code to write our first ever program. This is the most based programming tutorial to ever exist. Trust me, it's actually a lot easier than it sounds, this is something you could probably explain to a 5 year old.
 
 📀 What is the EVM?
-The Ethereum Virtual Machine is actually a great place to start learning programming. Because as it's name implies it's sort of an imaginary computer. Or a computer simulator. It needs to be this way because ETH runs on a blockchain across many people's computers. And by being "virtual" we can basically have  one big computer that everyone pitches in to help process for. This is why Vitalk always refers to ETH as a "world computer".
+The Ethereum Virtual Machine is actually a great place to start learning programming. Because as its name implies, it's sort of an imaginary computer. Being "virtual" we can basically have one big computer that everyone pitches in to help process for. This is why Vitalk always refers to ETH as a "world computer".
 
 So the whole blockchain part, we'll get to when we get to it. For now let's just focus on the computer part. If the EVM is basically a computer, then how does this virtual computer go about... well computing?
 
 🔠 Opcodes
-A computer code as far as a computer is concerned, is a recipe. The computer has it's metaphorical kitchen where it has various tools like like a blender. And when you give a recipe for a shake you might say:
+As far as a computer is concerned, code is a recipe. The computer has it's metaphorical kitchen where it has various tools like a blender. Here's en example recipie for a shake:
 1. Banana to bowl
 2. Peanut butter to bowl
 3. Milk to bowl
@@ -76,7 +76,7 @@ PUSH1 takes in a value so the EVM is expecting a number after PUSH1
 if we did 600101 that would be 60|01|01 = "PUSH1 01 ADD"
 (keep in mind this won't work. ADD needs 2 numbers. We only pushed 1 😉)
 
-To recap. A code is really just a list of instructions like a recipe. The computer knows certain tools and instructions like PUSH1 or ADD and can interact with ingredients (numbers) using them. PUSH1 and ADD and all instructions are called opcodes and they are really represented with numbers like 60 and 01 respectively. 
+To recap. A code is really just a list of instructions, like a recipe. The computer knows certain tools and instructions like PUSH1 or ADD and can interact with ingredients (numbers) using them. PUSH1 and ADD and all instructions are called opcodes and they are really represented with numbers like 60 and 01 respectively. 
 
 🛝Playground
 Go here: https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code=''_
@@ -97,5 +97,5 @@ Make a program that adds 2 + 2. I'm not going to tell you how to do it. But you 
 
 Don't hesitate to do some trial and error by hitting Run and stepping through each step, watching the stack as it changes.
 
-If you're stuck and need to see the solution, here it is. But I believe in you! Writing your first program in machine code might sound difficult but it's also based. It really is less complicated than it sounds, and everything later gets so much smoother when you have this context.
+If you're stuck and need to see the solution, here it is. But I believe in you! Writing your first program in machine code might sound difficult, but it's also based. It really is less complicated than it sounds, and everything later gets so much smoother when you have this context.
 https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code='6002600201'_

@@ -1,7 +1,7 @@
 # Day 170 of writing a smart contract a day until ETH hits $10k
 
 ❌🦜 **Solidity from the Ground Up: Ep. 1**
-Read this episode on [Github](https://github.com/CarsonCase/Solidity-from-the-Ground-Up/blob/master/1_helloMachineCode.md)
+Read this episode on [GitHub](https://github.com/CarsonCase/Solidity-from-the-Ground-Up/blob/master/1_helloMachineCode.md)
 
 ## ❓*What the Heck Is a 'Puter?*
 
@@ -19,19 +19,19 @@ actually DO it?
 Well today we're going to use machine code to write our first-ever program. This is the most based programming tutorial to ever exist. Trust me, it's actually a lot easier than it sounds, this is something you could probably explain to a 5 year old.
 
 ## 📀 What is the EVM?
-The Ethereum Virtual Machine is actually a great place to start learning programming. Because as its name implies it's sort of an imaginary computer. Or a computer simulator. It needs to be this way because ETH runs on a blockchain across many people's computers. And by being "virtual" we can basically have one big computer that everyone pitches in to help process for. This is why Vitalk always refers to ETH as a "world computer".
+The Ethereum Virtual Machine is actually a great place to start learning programming. Because, as its name implies, it's sort of an imaginary computer. Being "virtual" we can basically have one big computer that everyone pitches in to help process for. This is why Vitalk always refers to ETH as a "world computer".
 
 So the whole blockchain part, we'll get to when we get to it. For now let's just focus on the computer part. If the EVM is basically a computer, then how does this virtual computer go about... well computing?
 
 ## 🔠 Opcodes
-A computer code as far as a computer is concerned is a recipe. The computer has its metaphorical kitchen where it has various tools like a blender. And when you give a recipe for a shake you might say:
+As far as a computer is concerned, code is a recipe. The computer has its metaphorical kitchen where it has various tools like a blender. Here's en example recipe for a shake:
 
     Banana to bowl
     Peanut butter to bowl
     Milk to bowl
     Bowl to blender
 
-Well, for a computer to add 2 numbers it's pretty similar, but instead of a "bowl" it's memory. There are different types of memory like there's different kinds of bowls, glasses, and whatnot. But for now just know memory is where the computer stores numbers.
+Well, for a computer to add 2 numbers it's pretty similar, but instead of a "bowl" it's memory. There are different types of memory like there are different kinds of bowls, glasses, and whatnot. But for now just know memory is where the computer stores numbers.
 
 Opcodes are like instructions in the recipe. We might say PUSH banana, PUSH peanut-butter, PUSH milk, BLEND
 
@@ -104,3 +104,4 @@ Make a program that adds 2 + 2. I'm not going to tell you how to do it. But you 
 Don't hesitate to do some trial and error by hitting Run and stepping through each step, watching the stack as it changes.
 
 If you're stuck and need to see the solution, here it is.
+
