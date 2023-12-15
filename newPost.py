@@ -17,7 +17,7 @@ def createFile(folder, title, ext=".txt"):
 
     # Write something to the new file
     with open(new_file_name, "w") as new_file:
-        str = f"Day {current_number+1} of writing a smart contract a day until ETH hits $10k\n\n❌🦜 Solidity from the Ground Up:  Ep. {current_number-start_day+1}"
+        str = f"Day {current_number} of writing a smart contract a day until ETH hits $10k\n\n❌🦜 Solidity from the Ground Up:  Ep. {current_number-start_day+1}"
         new_file.write(str)
     print(f"New file '{new_file_name}' created, and")
 
