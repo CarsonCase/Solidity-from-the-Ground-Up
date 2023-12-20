@@ -1,6 +1,7 @@
 # Writing a Smart Contract a Day Until ETH Hits $10k
 ### A Free Course to Transform Parrots into Software Engineers
-
+**Get started** [here]  
+(https://github.com/CarsonCase/Solidity-from-the-Ground-Up/blob/master/1_helloMachineCode.md)
 For 170 days, I've run a Twitter account where I "post a smart contract every day until someone hires me". It was a great way to stay practiced as a professional Solidity developer, and build a sort of unconventional portfolio, while also venting my frustrations with the 2023 job market. As of today, I'm moving that goalpost to ETH hitting $10k; a goal we can all share. And this change is in the spirit of wanting to do more than just post a contract for myself. The way programming is taught online is broken, and ill prepares people for an AI enabled world. This is why I'm starting a free course, with episodes publishing daily to teaching Solidity, Ethereum, and really, Computer Science in the way I wish someone taught me. From the ground up.
 
 ## 🦜 What's wrong with coding courses?
@@ -26,7 +27,7 @@ In fact. We're not going to start with Solidity or smart contracts at all. And w
 3. You know you want it. Everyone wants to work in web3, even if you think it's a scam. This is the modern day gold rush, and trust me, it's worth it. I've worked as a professional dev in this industry, and bull market life is crazy. If you want to live a life that's a cross between Wolf of Wall Street and HBO's Silicon Valley, learn web3 development.
 
 ## ❓ How do I learn?
-Just follow me on Twitter or LinkedIn! I'm still posting every single day. I'm posting until ETH hits 10k (then I'll probably move the goalpost to 50).
+Simply click on the files above, here in Github! They are ordered with a number like `1_xxx.md`, `2_xxx.md`, and so on. Start on episode 1 and work your way through!
 
 Each day I'm going to post a link to the whole course so you can start from the ground up and do them at your own pace. This link will probably change as I find better ways to display the info, but for now it will be in GitHub.
 
