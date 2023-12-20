@@ -1,3 +1,62 @@
 Day 176 of writing a smart contract a day until ETH hits $10k
 
 ❌🦜 Solidity from the Ground Up:  Ep. 7
+
+So yesterday what we did might have been a bit confusing and math heavy. But before we dive into memory and how we can use it to actually do stuff with our calldata, I want to refresh something we did yesterday, as it's a really important theme you're going to see a lot in the computer world.
+
+📏 Memory location and sizes
+
+Remember when we had some memory we needed to get the size of it with CALLDATASIZE before we even attempted to CALLDATALOAD? And then we had to subtract the "size" of an address from that to actually load what we wanted?
+
+Well lets talk about this again.
+
+The size of an ETH address is 20 bytes.
+"0x95222290dd7278aa3ddd389cc1e1d165cc4bafe5" being an example.
+
+And the most we can load onto the stack is 32 bytes (256 bits).
+
+When we got the size of some amount of bytes that actually is the very END of it. And when we "load" we load STARTING at that point up until we reach 32 bytes.
+
+For example if we have a list like
+0, 1, 2.
+
+The size of that list is 3. But if we try and read at slot 3 there's nothing there. The last slot is 2, not 3. So if we wanted to read 2 we'd need to take the size of the whole array (3) and subtract by the size of what we want (1 element) to get 2.
+
+Just like what we did with the addresses. An address is 20 bytes, but with 3 of them there, that's 60 bytes total. 
+
+So when we CALLDATASIZE we get 60 bytes of size. And then subtract 20 (the size of an address) to get where to start reading the last one. 
+
+Memory, like all things in the computer, is just numbers. Including where it begins and ends. When you're coding in some higher level language and write:
+x = 1
+y = 2
+
+The computer has no concept of the difference between x and y. In fact it just needs to store some OTHER value somewhere of where x is. Of where y is. And of how large they are. Then when you say
+print(y) or something it knows to go to y's spot in memory then load at it's place - size of y.
+
+📂 Memory in the EVM
+In the EVM memory is also like calldata in that it can be very large. You can store pretty much as much data as you want in it. But. Unlike calldata it's not read only and you can edit it.
+
+Say for example, those addresses we worked with yesterday, we wanted to take them and turn all the 3s to 4s or something then give them all back. We could need memory to do that.
+
+To keep things simple for today I'm going to introduce a new opcode, and give you a challenge to use it with!
+
+🎉 New opcode
+The new code is called CALLDATACOPY (37)
+
+Click on it in evm.codes to see information on how to use it as well as this:
+
+Stack input
+
+    destOffset: byte offset in the memory where the result will be copied.
+    offset: byte offset in the calldata to copy.
+    size: byte size to copy.
+
+This is the first code we've used that takes 3 values. Just like how ADD used the 2 before it, this uses 3. And that's the memory location to copy to, the calldata location to copy from, and the size to copy.
+
+Should be simple enough. Now. I'm going to set up a challenge for you, and let you complete it!
+
+💪 Challenge
+https://www.evm.codes/playground?fork=shanghai&unit=Wei&callData=0xdeadba11&codeType=Bytecode&code='WTWQWP37%20~ReL%20TQand%20PwithXhe%20values%20neededNgeJoutputVMEMORYGba11KKKKKZIHintGAA_sizek~BB_SjcUk%20from~CC_sjmemorykXoZ~CU%3A%200xdeadba11'~I%20q000000kNcopyjtarJLV_%20%3D%20Z%5CnX%20tW60%20V%20in%20UalldataTAA%20QBB%20PCC%20NXo%20LplaceKqqJt%20IZ%23G%3A~%01GIJKLNPQTUVWXZ_jkq~_
+
+Here it is! At this link is the challenge. With comments of the details. Simply try and get the required output!
+I like this format, I think in some future lessons with opcodes I'll rely more on these permalink challenges to make these less text heavy
