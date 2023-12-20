@@ -1,0 +1,30 @@
+Day 179 of writing a smart contract a day until ETH hits $10k
+
+❌🦜 Solidity from the Ground Up:  Ep. 10
+
+I have been very careful so far to stress that "this is going to be worth learning later" and now, 10 days in. I'm going to show that in a new, wacky way.
+
+With some unexpected GoLang
+https://go.dev/play/p/diRXp0I06-O
+
+Before reading take a look at this program and just see if you can understand what's going on.
+Hit Run to execute everything in the main() function
+
+
+🐿 What is Go?
+Ask Google. Not me. But I like it. Lots of blockchain and ETH people do too and the ETH core is actually written in Golang! (compared to C++ for Bitcoin for example)
+Go, unlike Solidity, is a "normal" language that compiles to a .exe you can run on your computer and not something for the EVM. Seriously, go check it out if you're looking to make stuff more in the realm of web development or databasing or something. Go is very easy to use/learn and also very powerful.
+
+Why did I show you this?
+Surprisingly enough, that probably made a lot of sense... We havn't even talked about variables, or if statements or functions or Go at all. Yet that code above probably seems pretty reasonable right?
+
+Part of this is just English. If means if. > and < we learn as children. And well. Numbers.
+
+But after spending over a week on opcodes you will see this differently from a code parrot who just memorizes syntax. If all you did was watch Youtube videos on Go you could explain exactly what's going on here. But could not explain HOW it actually works. Just that it does. But you understand that 5 and 2, under the hood, are stacked on top of eachother. And evaluated, then jump to various places in the program where some code written by someone else of fmt.Println() prints text to the screen.
+And that is why we are doing this, from the ground up. You're going to see code differently learning this way, and that is going to make jumping across languages and frameworks much much easier. You know what. Let's Go (heh) ahead and do some Go together.
+
+💫 Go Challenge
+https://go.dev/play/p/TqPc11di1IF
+
+This one may be a little challenging. Especially if you have never programed before. But I urge you to try it! Especially since again, this course isn't about knowing how to program as much as it is about problem solving. How can you take the knowledge we have about how computers work with data, and find a way to solve the problem in the code above?
+Good luck!
