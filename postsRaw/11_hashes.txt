@@ -1,0 +1,55 @@
+Day 180 of writing a smart contract a day until ETH hits $10k
+
+❌🦜 Solidity from the Ground Up:  Ep. 11
+
+I hope everyone is having a jolly christmas eve today! I hope you're out with your family and not here reading this....
+
+Anyways.
+
+Hashes. 
+
+We're learning computer science in the context of ETH, so blockchain is pretty important to understand. And the fundamental component of blockchain (and lots of things) is the hash.
+
+Hashes get talked about so much in the crypto world it's criminal to not understand em. So today let's dive right in with some hashing!
+
+🎟 My First Hash
+https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code='%23%20FirskMSTORE8%20our%20value~5%20ak0jg5Z53j%23%20TxlocatioYinq~0~txsize~1%20byte~and%20ha_akarea%20ofqjg1Z20'~%2C%20xheYpu_e%20w0%20q%20memorykt%20j%5Cng6w0_sh%20thZ%20gwYn%20%01YZ_gjkqwx~_
+
+Quick refresher. 
+
+SHA3 (0x20) is the opcode to hash. It's so important that it has a built in opcode. And it hashes from MEMORY not the stack.
+So we need to first push our value (5), then the location to store it at in memory (0) and MSTORE8
+
+Also we're using MSTORE8 instead of MSTORE. MSTORE8 just stores 1 single byte, not a whole 256 bit word.
+
+Next, we push the location of 5 and the size of it (1 byte) and SHA3. Notice the output.
+
+It's CRAZY. How did we get that? from just 5? You know what. Let's try another number.. Let's push a larger one.. Oh I know let's use the hash we got last time!
+0xdbb8d0f4c497851a5043c6363657698cb1387682cac2f786c731f8936109d795
+
+let's hash that whole thing...
+
+https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code='%23%20FirskMSTORE%20our%20largjvalujak0_7f%20dbb8d0f4c497851a5043c6363657698cb1387682cac2f786c731f8936109d795Y52_%23%20T~locatioXinqx0xt~sizex1%20bytesxand%20haZakarea%20ofq_6w32Y20'~heXpuZjx%2C%20w0%20q%20memorykt%20je%20_%5CnZsh%20thY%206w0wXn%20%01XYZ_jkqwx~_
+Wow. Again. It's WAY different. How does it change so much? And yet. The size has stayed the same?
+
+🐔 Turning A Chicken Nugget Back Into A Chicken
+Don Tapscott famously said on John Oliver that "trying to hack bitcoin would be like trying to turn a chicken nugget back into a chicken"
+
+And that is because of hashes. Hashes are a 1 way function. And you can't undo them. There's no pattern, no method, no reverse formula to go from 0xdbb8d0f4c497851a5043c6363657698cb1387682cac2f786c731f8936109d795 to 5. ONLY to go from 5 to 0xdbb8d0f4c497851a5043c6363657698cb1387682cac2f786c731f8936109d795. But it will return the same thing every time.
+
+And that's pretty huge! Here's why
+
+Imagine you have a secret. Say a password like "Ilov3cats". So you send your password to a website. That website now needs to store your password in a giant file so it can check when you log in.
+
+But now a hacker could come along, simply steal this database and know EVERYONEs passwords (which you probably use for all sorts of stuff). So what do you do?
+
+You hash it. Now instead of sending the owner of the site your real password you send 0xdbb8d0f4c497851a5043c6363657698cb1387682cac2f786c731f8936109d795 or something, whatever it is. Now it's just as hard to guess, but if a hacker tries to steal it, it's impossible for him to figure our your original password from it.
+
+And when you type "Ilov3cats" into the password bar you don't even need to know. The computer can just hash it and send it over the internet instantly and you're much more secure!
+
+This is at least part of how modern cybersecurity keeps your passwords safe. 
+
+But hashes also play a super important role in crypto. For tomorrow just remember these things about them.
+1. It's the same every time as long as the input is the same (sha3 of 5 is always 0xdbb8d0f4c497851a5043c6363657698cb1387682cac2f786c731f8936109d795)
+2. It's impossible to reverse them
+3. No matter how much data you hash, could be the number 5 or the entire bee movie script, it's always that length.
