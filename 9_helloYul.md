@@ -1,0 +1,36 @@
+# Day 178 of writing a smart contract a day until ETH hits $10k
+
+**❌🦜 Solidity from the Ground Up:  Ep. 9**
+
+Ok number 1 question on everyone's mind 
+
+"How do I make this not suck?"
+
+Today we're going to see how with languages. But we're jumping ahead a lot here for the sake of staying interesting. Don't worry if today's post raises a lot of confusion because we'll get to all of it. It's from the ground up after all.
+
+And you would be right because coding in machine code, while fun for a few puzzles is really not easy. So what happened is people came up with higher level languages to abstract away some stuff and make it easier.
+
+Now you probably know about Solidity, as it's the main language for EVM programming. BUuuut you may not know about a lower level language for EVM coding. Yul. In fact, when you write solidity code, it first is converted to yul BEFORE getting converted to the bare bones opcodes we just saw.
+
+## 🔤 What A Computer Language is
+So what we were doing before wasn't even using a language. We were just straight up telepathically communicating with the computer. Well not exactly, you can always go lower level. But now were going to, for the first time, use a language.
+
+The computer doesn't know language. It knows Solidity or C++ or Python about as well as it knows English. But the reason you can write code in these languages is because someone out there wrote the opcodes to read each and every character you type, and convert THAT to opcodes. Pretty meta stuff.
+
+That thing is called a compiler. A compiler takes the text you write, and converts it into the machine code the computer understands. This is a HUGE oversimplification but it's good enough for now.
+
+## 👋 Hello Yul
+So go to the Github this episode is located at, or if you're here already, head to the `code` file and find `9_helloYul.sol` and open that. That is actually a Solidity file. Buuuut Solidity lets you write Yul inside of it by using this `assembly` block.
+
+In helloYul, you'll see a bunch of new stuff like "pragma" and "contract" and "function" and don't worry about all that. But look inside the `assembly{}` block. Everything in that {} is Yul.
+
+And remember that code we wrote a while back on day 5 for the paywall? Remember how much of a pain that was to do some sort of logic? To say "if this is equal to this jump to here" and all that?
+
+Well it's way simpler in Yul. All you have to say is `if eq(myValue, 25){stop}` and then if it doesn't stop, then it goes on to revert. It's way easier to read, to share and to write. And this is why programming languages exist.
+
+## ✍️ Try it Yourself
+If you want to try this yourself go to this website:
+https://remix.ethereum.org
+
+There's plenty of tutorials on how to use Remix so I won't hold your hand with it. But it's sort of like the evm codes playground but for Solidity. Paste 9_helloYul.sol in there and ctrl + s to compile.
+Then in the deploy tab you can hit deploy, then get a little button for myFunction to show up. Click that button with the values you want to pass in. And see what happens!
