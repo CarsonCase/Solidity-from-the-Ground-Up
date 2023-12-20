@@ -54,7 +54,7 @@ Ok easy enough we just need to get the callvalue, push the number we want it to 
 ## 🚶🏼 Walkthrough
 
 Here's the screenshot of my code. Notice I entered 5 in the box for "value" so the value in my tx is 5.
-![EVM codes screenshot](<Screenshot from 2023-12-15 23-47-11.png>)
+![EVM codes screenshot](<images/Screenshot from 2023-12-15 23-47-11.png>)
 
 First we use CALLVALUE to push the received value (5) onto the stack
 
