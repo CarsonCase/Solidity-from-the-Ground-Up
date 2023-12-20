@@ -1,0 +1,70 @@
+# Day 181 of writing a smart contract a day until ETH hits $10k
+
+**❌🦜 Solidity from the Ground Up:  Ep. 12**
+
+🎅 HO HO HO merry Christmas everyone. Man I started this on day 1 of writing a smart contract a day back in June. I remember thiking to myself "am I really going to still be doing this on Christmas? Even on Christmas getting up to post?" And I sure am. What a journey it's been. I can tell you I've made some amazing progress just by making this content. I want to thank each and every one of you that's followed me along this journey and I hope I've been able to give back a bit in this course.
+Anyways. I have an extra special present for you to open this Christmas.
+
+## 🔗The blockchain.
+
+Oh yeah. Today we're finally visiting what a blockchain is. At least the basics.
+
+So a block is exactly what you think it is. It's a block of information (as we know, just numbers). And they are chained together. But in the case of most blockchains including ETH/BTC. Blocks contain something called "transactions"
+
+Now there's a million things we could go over about how to efficiently store these transactions or how to verify that the person sending one is really the person sending it. There's lots of cool stuff to get into there. But for today. Just think of an ETH transaction like this:
+
+Todd makes a transaction to send 1 ETH to Jessie
+
+Todd sends this transaction to a big waiting room called the mempool.
+
+A miner (now, a node after proof of stake) finds this transaction as well as a bunch of others and makes a bundle called a block.
+
+When the block is published, the transaction of "1 ETH to Jessie from Todd" is public knowledge and everyone now knows Todd has 1 less ETH and Jessie has 1 more. Thus the balance has changed.
+
+Each block, simply speaking, looks like this:
+1. blockhash
+2. nonce
+3. A bunch of transactions
+4. The previous blockhash
+
+The blockhash is the hash of everything, 2, 3 and 4. The transactions are all the meaty content of the block.
+
+The previous blockhash is what makes it a chain. If each block's hash is the hash of everything INCLUDING the hash of the block before it. Then if ANY block changes even just the tiniest bit, ALL of them after change because hashes are wildly different if even a little detail changes.
+
+Seriously. Try yesterday's hash code. Instead of 5, try 6, or 4. It's way different. https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code='%23%20FirskMSTORE8%20our%20value~5%20ak0jg5Z53j%23%20TxlocatioYinq~0~txsize~1%20byte~and%20ha_akarea%20ofqjg1Z20'~%2C%20xheYpu_e%20w0%20q%20memorykt%20j%5Cng6w0_sh%20thZ%20gwYn%20%01YZ_gjkqwx~_
+
+This is why blockchain works. Why we can have hundreds, thousands or millions of computers agreeing on truth without a central authority. Because if someone were to go and change a block, everyone would know, because it's really easy to just add up the hashes and notice when one isn't what you expect.
+
+## ⛓️‍💥 Breaking the Chain
+But hold on you might say. Computers are fast. Just go back to an old block, change your balance to be 100,000 ETH, then really quickly change all the hashes after, publish that, and it all checks out. Nobody knows.
+
+This is where the nonce comes in. I'm going to explain this with POW and how mining works because it's simpler and really cool to think about. But anyways. Go to this website
+
+https://emn178.github.io/online-tools/sha256.html
+
+This is not sha3 (what ETH uses) This is BTCs sha256. But anyways enter some numbers. See the hashes change. Now keep going until you find a hash that starts with a zero. 0x0...
+
+It takes a minute. But you found one. Now find one that starts with two 0s. 0x00... 
+
+Now 3. Now 4. Now 5. There's no secret here. you just have to guess and check. And that. Is what Bitcoin miners do. Because each block has a special rule. Where the blockhash HAS to start with a certain number of 0s. It can take several minutes for new blocks to be found and that's with entire nation states worth of computing power.
+
+It's not so easy to just "change a block"
+
+And the way the chain works is that users accept the longest chain or "the one with the most work put into it" as truth. You can try and lie and say your fake Bitcoin is the real one, but it won't be longer than the one everyone else is working on because you don't control an astronomical amount of computing power.
+
+There's a LOT to go into here and I'm sure you have questions. This video here is my favorite at simply explaining cryptocurrency:  
+https://www.youtube.com/watch?v=bBC-nXj3Ng4
+
+But we are going over this mainly because we need context for this course. I'm teaching computer science through the lens of blockchain so you need to understand that in this SPECIFIC case, anytime you interact with code you're sending a transaction.
+
+Speaking of. Let's talk about ETH...
+
+## 🔷 ETH
+ETH transaction's arn't just money. In fact, forget about money completely with ETH. ETH transactions are about code and executing it. These miners (not always miners but think of them as similar) don't just build the blocks, but they also read your transaction for code. If there's code in it they execute it for you! 
+And as we know, the code is made up of those opcodes on evm.codes. When you send a tx to the evm with code in it, the miner bundling your transaction will execute this code.
+
+Also remember that storage thing? Well ETH has a "global state". When you write code that stores something in storage, the miner takes that code and publishes it on the network, making it as certain and unchanging as a transaction itself.
+
+So that's it. ETH is really a way to send code to other computers and have them execute it for you. The money aspect really just exists to incentivize miners to mine blocks, and to charge you per operation. The more computing you do, the more "gas" you get charged. More on this another day.
+
+But for now, spend some time with your loved ones, open some presents and have a merry Christmas!
