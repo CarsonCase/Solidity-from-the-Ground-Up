@@ -1,0 +1,40 @@
+# Day 185 of writing a smart contract a day until ETH hits $10k
+
+**❌🦜 Solidity from the Ground Up:  Ep. 16**
+
+Data Types are where a lot of tutorials start you at. And for pretty good reason. It's the first thing you need to know to start really coding.
+
+But you've been through a whole journey already. And more than anything, you should know. It's all just numbers.
+
+But. What if we don't want them to be? Like yesterday, I just was able to have a contract say "Hello World" and it did. What? Why wasn't it just numbers. Those are letters, not numbers.
+
+And that's because of Data Types. We can decide how we want to interpret numbers. 1 = a, 2 = b and so on. Data types like that word "string" are how we tell Mr. Computer "this is how I want these numbers interpreted" and some of them have special rules.
+
+Today we'll go over each of the "primitive" data types and have a little challenge.  
+Primitive just means they are the ones that come with Solidity, but we can actually invent our own later!
+
+## 🟰 Boolean
+Written as `bool`. Boolean means true or false. It's like binary. 1 or 0. It can only have 2 values and it takes up only a single byte of memory (even though it theoretically could only use 1 bit)
+
+You can use it in if statements like if you say `bool myVal = true` then write `if myVal{ do thing}` it will do thing only if myVal is true
+
+## ➖ Int
+An `int` is short for integer. Which literally just means a whole number, a number with no decimals. These can come in a variety of sizes. By default, ints max size is 256.
+But if you write int32 or int8 or int120 or whatever, that's the size of the int you get. Ints can be negative.
+
+## ➕ Uint
+`uint` stands for Unsigned int. Meaning it is just the same as an int but it cannot be negative. You see these a lot. Because they don't go negative they can be 2x as large at max size as ints. Also it's worth noting that both ints and uints use normal DECIMAL. Not HEX like we have before. I know. Finally. Readable numbers.
+
+## 🔢 Byte
+`byte` is what we're already used to. Hexadecimal bytes. 0x20 = 32 in decimal. And you would define it like bytes1 x = 0x20. They also go up to 256 bits but is written as bytes32 as 256 bits is 32 bytes.
+
+## #️⃣ address
+An `address` is bytes20. It's really the same exact things as a bytes20 under the hood but address specifies this as another wallet or contract you intend to interact with.
+
+Funny enough. We're not going to talk about strings.... I know I used one yesterday. But there's a better time to talk about it :/
+
+## 🧙‍♂️ Challenge
+Here's the Gist to the challenge:  
+https://gist.github.com/CarsonCase/088a090ebfe1e8d4521ba30d9a232db4  
+
+You can use it with the same remix instructions from yesterday. Good luck!
