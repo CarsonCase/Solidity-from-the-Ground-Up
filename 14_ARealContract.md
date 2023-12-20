@@ -1,0 +1,89 @@
+# Day 183 of writing a smart contract a day until ETH hits $10k
+
+**❌🦜 Solidity from the Ground Up:  Ep. 14**
+
+Ok guys. Time for Solidity. Kind of. We're going to deconstruct Solidity into bytecode. But still. We're going to do it. It gets a bit crazy. But let's walk though it together.
+
+## 🐌 Starting Slow
+Start by going to the usual evm.codes playground
+https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Solidity&code='pragma%20solidity%20%5E0.8.19%3B~~cz%20myCz(~)'~%5Cnzontract%01z~_
+
+But this time we have the language set to Solidity, not Bytecode.
+
+And I have written the most barebones contract possible. But I'll go over it anyways.
+
+The pragma solidity at the top is what defines the compiler version. Remember this code is just read by some code and converted to bytecode. And we need to specify which version we're using.
+
+`pragma solidity ^0.8.19;` means we will accept using any compiler of 0.8.19 or newer
+
+Anyways then there's contract MyContract{}
+
+Simple enough that means we're naming the contract MyContract. And all it's code goes in the {}s, which for now is none.
+
+It's important to keep in mind here the context too. What evm codes playground is doing is having us write a smart contract in Solidity, then translates that into the byte code that we'd publish to deploy the contract, not to interact with it. This is the code that we would give to CREATE from yesterday to deploy our smart contract. And it will give us back the code of the contract itself.  
+
+## 🆘 Lost in Translation
+But if you hit "Run" and see what this compiles to it's anything but simple. There's a lot going on here.
+
+Remember a long time ago the kitchen analogy? And how I said that when you create a smart contract there's not just the recipe you're defining but also all the setup instructions for the chef to get the kitchen all neat before he can cook? Well this is that. Let's go over it line by line.
+
+[00]	PUSH1	80    
+[02]	PUSH1	40    
+[04]	MSTORE	  
+[05]	CALLVALUE	  
+[06]	DUP1	  
+[07]	ISZERO	  
+[08]	PUSH1	0f    
+[0a]	JUMPI	   
+[0b]	PUSH1	00    
+[0d]	DUP1	   
+[0e]	REVERT	  
+[0f]	JUMPDEST	  
+[10]	POP	   
+[11]	PUSH1	3f  
+[13]	DUP1	  
+[14]	PUSH1	1d    
+[16]	PUSH1	00    
+[18]	CODECOPY	   
+[19]	PUSH1	00    
+[1b]	RETURN	  
+[1c]	INVALID	  
+[1d]	PUSH1	80    
+[1f]	PUSH1	40    
+[21]	MSTORE	  
+[22]	PUSH1	00    
+[24]	DUP1	  
+[25]	REVERT	  
+[26]	INVALID	  
+[27]	LOG2	  
+[28]	PUSH5	6970667358    
+[2e]	INVALID	   
+[2f]	SLT	   
+[30]	SHA3	   
+[31]	STATICCALL  	
+[32]	INVALID	   
+[33]	SWAP14	  
+[34]	INVALID	   
+[35]	TIMESTAMP	  
+[36]	PUSH27	7323c3b1a6bbb72e57060daceb213e756ad27b7f71899955ff3364    
+[52]	PUSH20	6f6c63430008130033    
+
+## 🕺 Breaking it Down
+It's not as scary as it looks!  
+[00] - [04] is storing 0x80 in memory slot 0x40. This is called the "free memory pointer".
+
+What the heck is that? Well I did mention that memory can be as large as you want right? Well, we still need to know when it ends. And this keeps track of that. It starts at 0x40, because all the slots before it are for other administrative stuff like itself. But basically it's there to keep track of memory for you.
+
+[05] - [0e] does something you may not have thought of, but it checks to see if you sent any ether. By default a smart contract does not accept ETH. You have to explicitly allow it. So here it's checking if you sent it anything. If you did it reverts. Try sending 1 wei and running it and watch what it does.
+
+But if you don't send any ETH it will instead jump to [0F]. Here is where it copies the code from [1D] - the end into memory and returns it. And that's our contract! 
+
+Now for our contract, what's going on?
+
+Well the only real code is from [1D] - [25]. Because it reverts at 25. The "code" after is actually just metadata that the solidity compiler left over and is gibberish that will never get to run anyways because it'll always revert before then.
+So really. All our contract does is assign that memory pointer then fail. Which makes sense. There's nothing in it. If you try and send a transaction to it with any funds or data, you'd want it to fail because there's nothing going on.
+
+Wow! That was a lot. But you know what's a lot more?
+Starting on writing Solidity in Remix tomorrow!
+
+How exciting :)
