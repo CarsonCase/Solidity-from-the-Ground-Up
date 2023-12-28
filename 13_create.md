@@ -24,6 +24,6 @@ I'm not sure if you noticed, but the evm.codes playground default code pushes th
 
 https://www.evm.codes/playground?fork=shanghai&unit=Wei&codeType=Bytecode&code='6~42%20z52%206~2~zzF0%5Cn'~0%20z6~0~%01z~_
 
-![Final result](<Screenshot from 2023-12-19 23-15-18.png>)
+![Final result](<images/Screenshot from 2023-12-19 23-15-18.png>)
 
 Running through all the code returns a contract address. You did it! You created a contract at that address that. Well is pretty boring. It's just 42. Tomorrow we'll see what a real contract looks like.

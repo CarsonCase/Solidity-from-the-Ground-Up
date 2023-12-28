@@ -25,25 +25,25 @@ Remix is like evm.codes on steroids and for Solidity. It's where we're going to 
 
 1. Go here -> https://remix.ethereum.org
 
-IMAGE 
+![Gist](<images/Screenshot from 2023-12-20 00-50-43.png>)
 
 2. On the front page you want to click that button under "Load from" that says "Gist"
 
 3. Then paste in the link I give you: https://gist.github.com/CarsonCase/4e80e1565dc77afeccc7d87feb0eb250
 
-![Where to click](<Screenshot from 2023-12-20 00-55-06.png>)
+![Where to click](<images/Screenshot from 2023-12-20 00-55-06.png>)
 
 4. Then a new file will appear on the left side here. Click it and a contracts folder opens up, and click that, and then click the Solidity file inside of it.
 
 5. Pres ctl + s "save" to compile the contract
 
-![Compiled Contract](<Screenshot from 2023-12-20 00-59-55.png>)
+![Compiled Contract](<images/Screenshot from 2023-12-20 00-59-55.png>)
 
 6. The green checkmark should show up and now you can click the icon underneath that says "Deploy & Run transactions"
 
 7. Click the big orange Deploy button
 
-![Deployed](<Screenshot from 2023-12-20 01-00-56.png>)
+![Deployed](<images/Screenshot from 2023-12-20 01-00-56.png>)
 
 8. Good job! You just deployed a smart contract! To a simulation network, not the real ETH or anything but still! That's your contract. Click the arrow to expand and see the functions you can call with it.
 
