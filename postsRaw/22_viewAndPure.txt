@@ -1,0 +1,24 @@
+Day 191 of writing a smart contract a day until ETH hits $10k
+
+❌🦜 Solidity from the Ground Up:  Ep. 22
+
+Now that we've got a solid grasp on Functions and what to do with them I'd like to transition a bit into working with storage. And do so by discussing how that impacts our functions. The real meat and potatoes of smart contracts comes from how they interact with storage.
+
+💼 Storage Recap
+So remember the EVM is a special kind of computer, one that runs on many computers around the world as a sort of decentralized internet. And just doing computations is 1 thing, but storing data that all these computers agree on is whats really a big deal. Like when you buy some token on Uniswap, your balance of that token is a number stored somewhere.
+
+Well storage, being something that lasts forever onchain, is reasonably pretty expensive and it's important to separate functions that accesses storage from those that don't.  
+
+You might wonder what I mean by "expensive" and I do mean that literally in the case of the EVM but we'll approach it specifically soon.
+
+🕵️‍♂️ View
+Remember those function modifiers like external or pure or payable? Well there's 2 more called view and pure. These ones determine what the function is allowed to do with storage. And view means it can not change it, only read it.
+
+If a function can only read from storage and doesn't need to make any adjustments it can actually be free to execute. An example is reading your balance in a metamask wallet. You can simply read what the number is without having to execute a transaction and wait for it to populate.
+
+👼 Pure
+Pure takes view to an extreme. Not only can your function not change storage, but it cannot read from it either. A pure function is like a math function that just does some helping task without using storage values at all.
+
+🎥 Example
+Here's an example gist to check out that demos each of these functions:
+https://gist.github.com/CarsonCase/a3afc67fb45f09c1321679f2cad1284c
