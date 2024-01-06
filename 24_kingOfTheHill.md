@@ -1,0 +1,16 @@
+# Day 193 of writing a smart contract a day until ETH hits $10k
+
+**❌🦜 Solidity from the Ground Up:  Ep. 24**
+
+A lot of info dumping the last few days. So lets do some practice! Today's contract is called King of The Hill. I'll give you the details, and see if you want to try and build your own before I show you the completed version!
+
+## 📝 Requirements
+
+King of the Hill needs 1 payable function called "pay()". When a user sends some eth while calling "pay()" it should check if the msg.value is > current highest amount paid. And if so, replace the "king" address with msg.sender.
+
+And that's it. This should be an easy one so open up remix, and make your own King of the Hill contract. See if you can get it to behave as expected. Feel free to check out my version below to compare!
+
+## 🔓 My version
+https://gist.github.com/CarsonCase/177ab6deb26d34198e45650f56979423
+
+So the way I did this. Is created a public king and highestAmountPaid storage variable. Then pay checks if the msg.value > highestPaid and sets the new king and amount if so. Otherwise it reverts. The revert was optional, as was my decision to check if msg.sender is already king. But I thought it would be a nice touch. Because we don't want to take someone's money if they just wouldn't become king anyways. 
