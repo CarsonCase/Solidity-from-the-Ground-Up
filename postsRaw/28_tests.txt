@@ -1,0 +1,24 @@
+Day 197 of writing a smart contract a day until ETH hits $10k
+
+❌🦜 Solidity from the Ground Up:  Ep. 28
+
+This is number 1 thing I wish they taught me in university.
+
+Testing is like 60% of what you do on the job as a software engineer. Code that isn't tested, doesn't work. And it's worthless. Especially in the world of web3 where a hacker can drain everyone's money if you don't have proper security. 
+
+All major programming languages and frameworks have baked in ways to test your code. Including Solidity. And you absolutely need to use them.
+
+🚘 TDD
+Most programmers, myself included, will just tackle a problem head on. Something needs to happen? Ok just type code until we have it. Well that's not the way you SHOULD do it. Hacking at a problem is fun but not really effective, especially on a team. Test Driven Development (TDD) is the process of writing code around tests, instead of tests to check you code.
+  
+How to TDD:
+1. Write some test code to test something (ex. Transferring should move tokes out of one address to another). This will error because you havn't written any code yet.
+2. Write the bare minimum of code to make it not error (instead the tests will just return failing)
+3. Write the bare minimum of code to make the tests pass
+4. Clean it up to keep your code pretty and DRY (Do not Repeat Yourself)
+
+⚒ Foundry
+Your homework today is to install Foundry. This is a development framework for smart contracts where you can write test scripts in Solidity! Which is really cool. It's also just great for lots of reasons.  
+https://github.com/foundry-rs/foundry  
+Install foundry and set up a project, copy over the code I sent yesterday:  https://gist.github.com/CarsonCase/957153d1955615f6b2b15b2fc4d686da  
+And that is what we're going to use to make our ERC20. Starting tomorrow we'll write our firsts tests using TDD.
